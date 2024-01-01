@@ -111,5 +111,5 @@
 #define SPLIT_WPM_ENABLE //Enable WPM across split keyboards (+268).
 #define NO_ACTION_ONESHOT
 //#define SPLIT_OLED_ENABLE
-
-#define DYNAMIC_KEYMAP_LAYER_COUNT 6
+#define MOUSEKEY_MAX_SPEED 6
+#define DYNAMIC_KEYMAP_LAYER_COUNT 4
