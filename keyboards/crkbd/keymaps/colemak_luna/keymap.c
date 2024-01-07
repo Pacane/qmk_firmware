@@ -28,9 +28,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                         KC_M,    KC_N,    KC_E,    KC_I,    KC_O, RSFT_T(KC_QUOT),
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      LCTL_T(KC_TAB),    KC_X,    KC_C,    KC_D,    KC_V,    KC_Z,                         KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,  KC_ESC,
+      LCTL_T(KC_TAB),    KC_X,    KC_C,    KC_D,    KC_V,    KC_Z,                         KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,  LALT_T(KC_ESC),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,   MO(1),  KC_SPC,     KC_ENT,   MO(2), KC_RALT
+                                          KC_LGUI,   MO(1),  KC_SPC,     KC_ENT,   MO(2), RALT_T(KC_BSPC)
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL, KC_MINS, KC_EQL, S(KC_MINS), S(KC_8), S(KC_GRV),                      KC_PAUS, KC_F12,       KC_INS,       KC_DEL,  KC_END , KC_PGDN,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,   MO(3), KC_BSPC,    _______, _______, KC_LALT
+                                          KC_LGUI,   MO(3), KC_BSPC,    _______, _______, KC_RALT
                                       //`--------------------------'  `-------------------------
   ),
  //ADJUST
@@ -200,7 +200,6 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
    if (led_usb_state.caps_lock) {
             oled_write_raw_P(bark[abs(1 - current_frame)], ANIM_SIZE);
 
-        } else if (isSneaking) {
             oled_write_raw_P(sneak[abs(1 - current_frame)], ANIM_SIZE);
 
         } else if (current_wpm <= MIN_WALK_SPEED) {
