@@ -30,28 +30,41 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define HOME_I LALT_T(KC_I)
 #define HOME_O RCTL_T(KC_O)
 
+
+// Left-hand home row mods
+#define HOME_Q LCTL_T(KC_Q)
+#define HOME_W LALT_T(KC_W)
+#define HOME_F LGUI_T(KC_F)
+#define HOME_P LSFT_T(KC_P)
+
+// Right-hand home row mods
+#define HOME_L RSFT_T(KC_L)
+#define HOME_U RGUI_T(KC_U)
+#define HOME_Y LALT_T(KC_Y)
+#define HOME_SC RCTL_T(KC_SCLN)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+
   //COLEMAK
   [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      MEH_T(KC_ESC),    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                   KC_J,    KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC,
+      MEH_T(KC_ESC),    HOME_Q,    HOME_W,    HOME_F,    HOME_P,    KC_B,       KC_J,    HOME_L,    HOME_U,    HOME_Y, HOME_SC, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,    HOME_A,    HOME_R,    HOME_S,    HOME_T,    KC_G,                         KC_M,    HOME_N,    HOME_E,    HOME_I,    HOME_O, RSFT_T(KC_QUOT),
+      KC_LSFT,    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                     KC_M,    KC_N,    KC_E,    KC_I,    KC_O, RSFT_T(KC_QUOT),
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      LCTL_T(KC_TAB),    KC_X,    KC_C,    KC_D,    KC_V,    LALT_T(KC_Z),                         KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,  LALT_T(KC_ESC),
+      LCTL_T(KC_TAB),KC_Z, KC_X,    KC_C,    KC_D,    KC_V,                     KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,  LALT_T(KC_ESC),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI,   MO(1),  KC_SPC,     KC_ENT,   MO(2), RALT_T(KC_BSPC)
                                       //`--------------------------'  `--------------------------'
-
   ),
  //LOWER
   [1] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_TAB, XXXXXXX, XXXXXXX , KC_UP, XXXXXXX, KC_MPRV,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MO(4), XXXXXXX, KC_LEFT, KC_DOWN,KC_RIGHT, KC_MPLY,                      KC_H,   KC_J,   KC_K,   KC_L, XXXXXXX, XXXXXXX,
+      MO(4), XXXXXXX, KC_LEFT, KC_DOWN,KC_RIGHT, KC_MPLY,                       KC_H,    KC_J,    KC_K,    KC_L,    XXXXXXX,  XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, XXXXXXX, KC_RBRC, XXXXXXX, XXXXXXX, KC_MNXT,                      KC_LBRC,  S(KC_RBRC),   XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_LCTL, XXXXXXX, XXXXXXX, KC_RBRC, XXXXXXX, KC_MNXT,                     KC_LBRC, S(KC_RBRC),XXXXXXX,XXXXXXX,XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI, _______,  KC_SPC,    LALT(KC_ENT),   MO(3), KC_P0
                                       //`--------------------------'  `--------------------------'
@@ -71,11 +84,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  //ADJUST
   [3] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      QK_BOOT, XXXXXXX, XXXXXXX, KC_MS_U, XXXXXXX, XXXXXXX,                        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
+      QK_BOOT, RGB_MODE_FORWARD, XXXXXXX, KC_MS_U, XXXXXXX, XXXXXXX,               KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_MODE_FORWARD, KC_WH_U	, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN1,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
+      KC_LSFT, KC_WH_U, KC_MS_L, KC_MS_D, KC_MS_R, KC_BTN1,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_HUI, KC_WH_D, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      RGB_HUI, KC_WH_D, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LGUI, _______, _______,    _______, _______, KC_LALT
                                       //`--------------------------'  `--------------------------'
@@ -85,11 +98,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX, LSA(KC_1), LSA(KC_2), LSA(KC_3), LSA(KC_4), LSA(KC_5),   LSA(KC_6), LSA(KC_7), LSA(KC_8), LSA(KC_9) , LSA(KC_0), XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LCTL,                       KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LCTL,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, LSA(KC_T), KC_LCTL,                    LSA(KC_H), LSA(KC_J), LSA(KC_K), LSA(KC_L), XXXXXXX, KC_LCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL, XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, _______, _______,    _______, _______, KC_LALT
+                                   KC_LGUI, _______, LSA(KC_SPC),            _______, _______, KC_LALT
                                       //`--------------------------'  `--------------------------'
   ),
 };
