@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       MEH_T(KC_ESC),    HOME_Q,    HOME_W,    HOME_F,    HOME_P,    KC_B,       KC_J,    HOME_L,    HOME_U,    HOME_Y, HOME_SC, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                     KC_M,    KC_N,    KC_E,    KC_I,    KC_O, RSFT_T(KC_QUOT),
+      KC_LSFT,    HOME_A,    HOME_R,    HOME_S,    HOME_T,    KC_G,                     KC_M,    HOME_N,    HOME_E,    HOME_I,    HOME_O, RSFT_T(KC_QUOT),
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       LCTL_T(KC_TAB),KC_Z, KC_X,    KC_C,    KC_D,    KC_V,                     KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH,  LALT_T(KC_ESC),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
