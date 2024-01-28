@@ -65,18 +65,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       LCTL_TAB, KC_Z,   KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,    KC_COMM,  KC_DOT, KC_SLSH, LALT_T(KC_ESC),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         KC_LGUI,  MO(1),  KC_SPC,     KC_ENT,   LT(2, KC_BSPC),  RALT_T(KC_DEL)
+                                         KC_LGUI,  MO(_LOWER),  KC_SPC,     KC_ENT,   LT(_RAISE, KC_BSPC),  RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
   ),
   [_LOWER] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_TAB, XXXXXXX, XXXXXXX , KC_UP, XXXXXXX, KC_MPRV,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      MO(4), XXXXXXX, KC_LEFT, KC_DOWN,KC_RIGHT, KC_MPLY,                       KC_H,    KC_J,    KC_K,    KC_L,    XXXXXXX,  XXXXXXX,
+      MO(_WINDOWS), XXXXXXX, KC_LEFT, KC_DOWN,KC_RIGHT, KC_MPLY,                       KC_H,    KC_J,    KC_K,    KC_L,    XXXXXXX,  XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL, XXXXXXX, XXXXXXX, KC_RBRC, XXXXXXX, KC_MNXT,                     KC_LBRC, S(KC_RBRC),XXXXXXX,XXXXXXX,XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, _______,  KC_SPC,    LALT(KC_ENT),   MO(3), XXXXXXX
+                                          KC_LGUI, _______,  KC_SPC,    LALT(KC_ENT),   MO(_ADJUST), XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
   [_RAISE] = LAYOUT_split_3x6_3(
@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL, KC_MINS, KC_EQL, S(KC_MINS), S(KC_8), S(KC_GRV),                      KC_PAUS, KC_F12,       KC_INS,       KC_DEL,  KC_END , KC_PGDN,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,   MO(3), KC_BSPC,    _______, _______, KC_RALT
+                                          KC_LGUI,   MO(_ADJUST), KC_BSPC,    _______, _______, KC_RALT
                                       //`--------------------------'  `-------------------------
   ),
   [_ADJUST] = LAYOUT_split_3x6_3(
