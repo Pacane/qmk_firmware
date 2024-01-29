@@ -48,6 +48,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RSFT_QUOT RSFT_T(KC_QUOT)
 #define TREMA S(KC_RBRC)
 
+#define MCUT LGUI(KC_X)
+#define MCOPY LGUI(KC_C)
+#define MPASTE LGUI(KC_V)
+#define MUNDO LGUI(KC_Z)
+#define MREDO LGUI(KC_R)
+
 enum layer_names {
   _CLMK,
   _LOW,
@@ -67,14 +73,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       LCTL_TAB, KC_Z,   KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,    KC_COMM,  KC_DOT, KC_SLSH, LALT_T(KC_ESC),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-      KC_LGUI,  MO(_LOW), LT(_SSYM, KC_SPC),     KC_ENT,   LT(_UP, KC_BSPC),  RALT_T(KC_DEL)
+      KC_LGUI,  MO(_LOW), KC_SPC,     LT(_SSYM, KC_ENT),   LT(_UP, KC_BSPC),  RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
   ),
   [_LOW] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-     KC_TAB,  XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX,  KC_MPRV,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_DEL,
+     KC_TAB,  XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX,  KC_MPRV,                     MUNDO,   MPASTE,  MCOPY,   MCUT,    MREDO,   KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-    MO(_WIN), XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, KC_MPLY,                     KC_H,    KC_J,    KC_K,    KC_L,    XXXXXXX, XXXXXXX,
+    MO(_WIN), XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, KC_MPLY,                     KC_LEFT, KC_DOWN, KC_RIGHT,KC_MPLY, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      KC_LCTL, XXXXXXX, XXXXXXX, KC_RBRC, XXXXXXX,  KC_MNXT,                     KC_LBRC, TREMA,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -83,9 +89,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_UP] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_GRV, KC_1,   KC_2,     KC_3,   KC_4,    KC_5,                           KC_6,    KC_7,          KC_8,          KC_9 ,   KC_0,    KC_PSCR,
+      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,   KC_5,                          KC_6,    KC_7,    KC_8,   KC_9,    KC_0,     KC_PSCR,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, XXXXXXX, KC_BSLS, RALT(KC_LBRC), RALT(KC_QUOT), KC_LPRN,          KC_RPRN, RALT(KC_BSLS), RALT(KC_RBRC), S(KC_BSLS) ,  KC_HOME, KC_PGUP,
+      KC_LSFT, XXXXXXX, KC_BSLS, RALT(KC_LBRC), RALT(KC_QUOT), KC_LPRN,          KC_RPRN, RALT(KC_BSLS), RALT(KC_RBRC), S(KC_BSLS),  KC_HOME, KC_PGUP,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL, KC_MINS, KC_EQL, S(KC_MINS), S(KC_8), S(KC_GRV),                      KC_PAUS, KC_F12,       KC_INS,       KC_DEL,  KC_END , KC_PGDN,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
