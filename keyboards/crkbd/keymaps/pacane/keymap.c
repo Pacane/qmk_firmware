@@ -48,11 +48,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RSFT_QUOT RSFT_T(KC_QUOT)
 #define TREMA S(KC_RBRC)
 
-#define MCUT LGUI(KC_X)
-#define MCOPY LGUI(KC_C)
-#define MPASTE LGUI(KC_V)
-#define MUNDO LGUI(KC_Z)
-#define MREDO LGUI(KC_R)
+#define U_RDO SCMD(KC_Z)
+#define U_PST LCMD(KC_V)
+#define U_CPY LCMD(KC_C)
+#define U_CUT LCMD(KC_X)
+#define U_UND LCMD(KC_Z)
+
+#define T_FUN LT(_FUN, KC_LGUI)
 
 enum layer_names {
   _CLMK,
@@ -61,6 +63,7 @@ enum layer_names {
   _ADJ,
   _WIN,
   _SSYM,
+  _FUN,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -73,12 +76,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       LCTL_TAB, KC_Z,   KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,    KC_COMM,  KC_DOT, KC_SLSH, LALT_T(KC_ESC),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-      KC_LGUI,  MO(_LOW), KC_SPC,     LT(_SSYM, KC_ENT),   LT(_UP, KC_BSPC),  RALT_T(KC_DEL)
+                                        T_FUN,  MO(_LOW), KC_SPC,     LT(_SSYM, KC_ENT),   LT(_UP, KC_BSPC),  RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
   ),
   [_LOW] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-     KC_TAB,  XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX,  KC_MPRV,                     MUNDO,   MPASTE,  MCOPY,   MCUT,    MREDO,   KC_DEL,
+     KC_TAB,  XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX,  KC_MPRV,                     U_UND,   U_PST,   U_CPY,   U_CUT,   U_RDO,   KC_DEL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
     MO(_WIN), XXXXXXX, KC_LEFT, KC_DOWN, KC_RIGHT, KC_MPLY,                     KC_LEFT, KC_DOWN, KC_RIGHT,KC_MPLY, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -131,4 +134,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                          KC_LGUI,  MO(_LOW),  KC_SPC,     KC_ENT,   LT(_UP, KC_BSPC),  RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
   ),
+  [_FUN] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PAUS,  KC_F12, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                          _______, _______, _______,    _______, _______, _______
+                                      //`--------------------------'  `--------------------------'
+  ),
+
 };

@@ -112,8 +112,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NO_ACTION_ONESHOT
 //#define SPLIT_OLED_ENABLE
 #define MOUSEKEY_MAX_SPEED 6
-#define DYNAMIC_KEYMAP_LAYER_COUNT 6
+#define DYNAMIC_KEYMAP_LAYER_COUNT 7
+
 #define TAPPING_TERM 200
+#define QUICK_TAP_TERM 0
+
+// Auto Shift
+#define AUTO_SHIFT_TIMEOUT TAPPING_TERM
+#define AUTO_SHIFT_NO_SETUP
 #define NO_AUTO_SHIFT_SPECIAL
 #define NO_AUTO_SHIFT_TAB
 #define NO_AUTO_SHIFT_SYMBOL
