@@ -56,6 +56,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define T_FUN LT(_FUN, KC_LGUI)
 
+#define WS1 LSA(KC_1)
+#define WS2 LSA(KC_2)
+#define WS3 LSA(KC_3)
+#define WS4 LSA(KC_4)
+#define WS5 LSA(KC_5)
+#define WS6 LSA(KC_6)
+#define WS7 LSA(KC_7)
+#define WS8 LSA(KC_8)
+#define WS9 LSA(KC_9)
+#define WS0 LSA(KC_0)
+
+#define WSL LSA(KC_H)
+#define WSD LSA(KC_J)
+#define WSU LSA(KC_K)
+#define WSR LSA(KC_L)
 enum layer_names {
   _CLMK,
   _LOW,
@@ -114,13 +129,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_WIN] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, LSA(KC_1), LSA(KC_2), LSA(KC_3), LSA(KC_4), LSA(KC_5),   LSA(KC_6), LSA(KC_7), LSA(KC_8), LSA(KC_9) , LSA(KC_0), XXXXXXX,
+      XXXXXXX, WS1,     WS2,     WS3,     WS4,     WS5,                          WS6,     WS7,    WS8,      WS9,     WS0,     XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, LSA(KC_T), KC_LCTL,                    LSA(KC_H), LSA(KC_J), LSA(KC_K), LSA(KC_L), XXXXXXX, KC_LCTL,
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, LSA(KC_T), KC_LCTL,                    WSL,    WSD,     WSU,      WSR,     XXXXXXX, KC_LCTL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,                           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                   KC_LGUI, _______, LSA(KC_SPC),            _______, _______, KC_LALT
+                                         KC_LGUI, _______, LSA(KC_SPC),            LSA(KC_ENT), _______, KC_LALT
                                       //`--------------------------'  `--------------------------'
   ),
   [_SSYM] = LAYOUT_split_3x6_3(
@@ -131,14 +146,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         KC_LGUI,  MO(_LOW),  KC_SPC,     KC_ENT,   LT(_UP, KC_BSPC),  RALT_T(KC_DEL)
+                                         KC_LGUI,  KC_0,  KC_SPC,     KC_ENT,   LT(_UP, KC_BSPC),  RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
   ),
   [_FUN] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
+      XXXXXXX, _______, _______, _______, _______, _______,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PAUS,  KC_F12, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
