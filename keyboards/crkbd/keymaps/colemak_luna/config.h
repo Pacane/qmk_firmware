@@ -1,48 +1,48 @@
 /*
-Copyright 2019 @foostan
-Copyright 2023 @asdfire1
+  Copyright 2019 @foostan
+  Copyright 2023 @asdfire1
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 2 of the License, or
+  (at your option) any later version.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #pragma once
 
 /* Select hand configuration */
 
-#define MASTER_LEFT
-// #define MASTER_RIGHT
+/* #define MASTER_LEFT */
+#define MASTER_RIGHT
 // #define EE_HANDS
 
 #ifdef RGBLIGHT_ENABLE
-    #define RGBLIGHT_EFFECT_BREATHING
-    #define RGBLIGHT_EFFECT_RAINBOW_MOOD
-    #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-    #define RGBLIGHT_EFFECT_SNAKE
-    #define RGBLIGHT_EFFECT_KNIGHT
-    #define RGBLIGHT_EFFECT_CHRISTMAS
-    #define RGBLIGHT_EFFECT_STATIC_GRADIENT
+/* #define RGBLIGHT_EFFECT_BREATHING */
+/* #define RGBLIGHT_EFFECT_RAINBOW_MOOD */
+/* #define RGBLIGHT_EFFECT_RAINBOW_SWIRL */
+/* #define RGBLIGHT_EFFECT_SNAKE */
+/* #define RGBLIGHT_EFFECT_KNIGHT */
+#define RGBLIGHT_EFFECT_CHRISTMAS
+/* #define RGBLIGHT_EFFECT_STATIC_GRADIENT */
 //  #define RGBLIGHT_EFFECT_RGB_TEST
 //  #define RGBLIGHT_EFFECT_ALTERNATING
 //  #define RGBLIGHT_EFFECT_TWINKLE
-    #define RGBLIGHT_LIMIT_VAL 120
-    #define RGBLIGHT_HUE_STEP 10
-    #define RGBLIGHT_SAT_STEP 17
-    #define RGBLIGHT_VAL_STEP 17
+#define RGBLIGHT_LIMIT_VAL 120
+#define RGBLIGHT_HUE_STEP 10
+#define RGBLIGHT_SAT_STEP 17
+#define RGBLIGHT_VAL_STEP 17
 #endif
 
 #ifdef RGB_MATRIX_ENABLE
-//#   define RGB_MATRIX_KEYPRESSES // reacts to keypresses
+#   define RGB_MATRIX_KEYPRESSES // reacts to keypresses
 // #   define RGB_MATRIX_KEYRELEASES // reacts to keyreleases (instead of keypresses)
 // #   define RGB_DISABLE_AFTER_TIMEOUT 0 // number of ticks to wait until disabling effects
 #   define RGB_DISABLE_WHEN_USB_SUSPENDED // turn off effects when suspended
@@ -72,7 +72,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#    define ENABLE_RGB_MATRIX_BAND_SPIRAL_VAL
 //#    define ENABLE_RGB_MATRIX_CYCLE_ALL
 //#    define ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT
-#    define ENABLE_RGB_MATRIX_CYCLE_UP_DOWN
+/* #    define ENABLE_RGB_MATRIX_CYCLE_UP_DOWN */
 //#    define ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
 //#    define ENABLE_RGB_MATRIX_CYCLE_OUT_IN
 //#    define ENABLE_RGB_MATRIX_CYCLE_OUT_IN_DUAL
@@ -93,7 +93,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#    define ENABLE_RGB_MATRIX_TYPING_HEATMAP
 //#    define ENABLE_RGB_MATRIX_DIGITAL_RAIN
 // enabled only of RGB_MATRIX_KEYPRESSES or RGB_MATRIX_KEYRELEASES is defined
-//#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
+#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
 //#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE
 //#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE
 //#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
@@ -111,5 +111,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SPLIT_WPM_ENABLE //Enable WPM across split keyboards (+268).
 #define NO_ACTION_ONESHOT
 //#define SPLIT_OLED_ENABLE
-
-#define DYNAMIC_KEYMAP_LAYER_COUNT 6
+#define MOUSEKEY_MAX_SPEED 6
+#define DYNAMIC_KEYMAP_LAYER_COUNT 4
