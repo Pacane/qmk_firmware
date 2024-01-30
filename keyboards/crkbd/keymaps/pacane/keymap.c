@@ -53,6 +53,9 @@ enum layer_names {
 #define U_UND LCMD(KC_Z)
 
 #define T_FUN LT(_FUN, KC_LGUI)
+#define T_UP LT(_UP, KC_BSPC)
+#define T_LOW LT(_LOW, KC_ESC)
+#define T_SYM LT(_SYM, KC_ENT)
 
 #define WS1 LSA(KC_1)
 #define WS2 LSA(KC_2)
@@ -94,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       LCTL_TAB, KC_Z,   KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,    KC_COMM,  KC_DOT, KC_SLSH, LALT_T(KC_ESC),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         T_FUN,   MO(_LOW), KC_SPC,    LT(_SYM, KC_ENT), LT(_UP, KC_BSPC), RALT_T(KC_DEL)
+                                         T_FUN,   T_LOW,   KC_SPC,     T_SYM,   T_UP,    RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
   ),
   [_LOW] = LAYOUT_split_3x6_3(
