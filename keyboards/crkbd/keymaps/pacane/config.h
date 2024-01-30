@@ -71,7 +71,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#    define ENABLE_RGB_MATRIX_BAND_SPIRAL_SAT
 //#    define ENABLE_RGB_MATRIX_BAND_SPIRAL_VAL
 //#    define ENABLE_RGB_MATRIX_CYCLE_ALL
-#    define ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT
+/* #    define ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT */
 /* #    define ENABLE_RGB_MATRIX_CYCLE_UP_DOWN */
 //#    define ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
 //#    define ENABLE_RGB_MATRIX_CYCLE_OUT_IN
@@ -101,10 +101,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* #    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTICROSS */
 /* #    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_NEXUS */
 /* #    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS */
-#    define ENABLE_RGB_MATRIX_SPLASH
-#    define ENABLE_RGB_MATRIX_MULTISPLASH
-#    define ENABLE_RGB_MATRIX_SOLID_SPLASH
-#    define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
+/* #    define ENABLE_RGB_MATRIX_SPLASH */
+/* #    define ENABLE_RGB_MATRIX_MULTISPLASH */
+/* #    define ENABLE_RGB_MATRIX_SOLID_SPLASH */
+/* #    define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH */
 #endif
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
 #define SPLIT_LAYER_STATE_ENABLE
