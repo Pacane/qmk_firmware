@@ -18,11 +18,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
+enum layer_names {
+  _CLMK,
+  _LOW,
+  _UP,
+  _ADJ,
+  _WIN,
+  _SYM,
+  _FUN,
+  _FR,
+};
+
 #define HOME_A LCTL_T(KC_A)
 #define HOME_R LALT_T(KC_R)
 #define HOME_S LGUI_T(KC_S)
 #define HOME_T LSFT_T(KC_T)
+#define HOME_G LT(_FR, KC_G)
 
+#define HOME_M LT(_FR, KC_M)
 #define HOME_N RSFT_T(KC_N)
 #define HOME_E RGUI_T(KC_E)
 #define HOME_I LALT_T(KC_I)
@@ -63,16 +76,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define RGBU RGB_MODE_FORWARD
 
-enum layer_names {
-  _CLMK,
-  _LOW,
-  _UP,
-  _ADJ,
-  _WIN,
-  _SYM,
-  _FUN,
-};
-
 #define L_SQ_BKT RALT(KC_LBRC)
 #define R_SQ_BKT RALT(KC_RBRC)
 
@@ -87,11 +90,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       MEH_ESC,  KC_Q,   KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,     KC_Y,   KC_SCLN, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,  HOME_A, HOME_R,  HOME_S,  HOME_T,  KC_G,                         KC_M,    HOME_N,  HOME_E,   HOME_I, HOME_O,  RSFT_QUOT,
+      KC_LSFT,  HOME_A, HOME_R,  HOME_S,  HOME_T,  HOME_G,                       HOME_M,  HOME_N,  HOME_E,   HOME_I, HOME_O,  RSFT_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       LCTL_TAB, KC_Z,   KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,    KC_COMM,  KC_DOT, KC_SLSH, LALT_T(KC_ESC),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                        T_FUN,  MO(_LOW), KC_SPC,     LT(_SYM, KC_ENT),   LT(_UP, KC_BSPC),  RALT_T(KC_DEL)
+                                         T_FUN,   MO(_LOW), KC_SPC,    LT(_SYM, KC_ENT), LT(_UP, KC_BSPC), RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
   ),
   [_LOW] = LAYOUT_split_3x6_3(
@@ -142,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
      XXXXXXX, XXXXXXX, KC_7,    KC_8,    KC_9,    XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, XXXXXXX, KC_4,    KC_5,    KC_6,    XXXXXXX,                      XXXXXXX, KC_LSFT, KC_LGUI,  KC_LALT, KC_LCTL,  XXXXXXX,
+     XXXXXXX, XXXXXXX, KC_4,    KC_5,    KC_6,    XXXXXXX,                      XXXXXXX, KC_LSFT, KC_LGUI,  KC_LALT, KC_LCTL, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -158,6 +161,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PAUS,  KC_F12, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, _______, _______,    _______, _______, _______
+                                      //`--------------------------'  `--------------------------'
+  ),
+  [_FR] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      XXXXXXX, KC_LBRC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, TREMA,   XXXXXXX, KC_QUOT,
+  //|--------+--------+--------+--------+-------+--------|                    |--------+--------+--------+--------+--------+--------|
+      XXXXXXX, XXXXXXX, XXXXXXX, KC_RBRC, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                          XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 };
