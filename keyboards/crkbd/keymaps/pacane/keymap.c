@@ -92,6 +92,7 @@ enum layer_names {
 
 enum custom_keycodes {
     PASSWD = SAFE_RANGE,
+    CCED,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -178,7 +179,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_LBRC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, TREMA,   KC_LBRC, KC_QUOT,
   //|--------+--------+--------+--------+-------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, KC_RBRC, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, CCED,    XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
@@ -189,12 +190,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case PASSWD:
         if (record->event.pressed) {
-            // when keycode QMKBEST is pressed
             SEND_STRING("motdepasse1234");
-        } else {
-            // when keycode QMKBEST is released
-        }
-        break;
+        }         break;
+    case CCED:
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_RBRC)"c");
+        }         break;
     }
     return true;
 };
