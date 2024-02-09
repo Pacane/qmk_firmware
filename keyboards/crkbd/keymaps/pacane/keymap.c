@@ -117,6 +117,7 @@ enum layer_names {
 #define PIPE S(KC_GRV)
 #define UNDSCR S(KC_MINS)
 #define MULTPL S(KC_8)
+#define AT RALT(KC_2)
 
 enum custom_keycodes {
     PASSWD = SAFE_RANGE,
@@ -153,7 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, PIPE,    L_CHEV, L_SQ_BKT,L_CL_BKT,KC_LPRN,                      KC_RPRN, R_CL_BKT,R_SQ_BKT,R_CHEV,  KC_HOME, KC_PGUP,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, UNDSCR,  KC_EQL, KC_MINS, PLUS,    MULTPL,                       KC_PAUS, KC_F12,  KC_INS,  KC_DEL,  KC_END , KC_PGDN,
+           AT, UNDSCR,  KC_EQL, KC_MINS, PLUS,    MULTPL,                       KC_PAUS, KC_F12,  KC_INS,  KC_DEL,  KC_END , KC_PGDN,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          _______, MO(_ADJ), _______,   _______, _______, KC_RALT
                                       //`--------------------------'  `-------------------------
@@ -254,3 +255,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 };
+
+void keyboard_post_init_user(void) {
+}
