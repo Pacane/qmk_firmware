@@ -68,7 +68,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SPLIT_WPM_ENABLE //Enable WPM across split keyboards (+268).
 #define NO_ACTION_ONESHOT
 #define MOUSEKEY_MAX_SPEED 6
-#define DYNAMIC_KEYMAP_LAYER_COUNT 8
+#define DYNAMIC_KEYMAP_LAYER_COUNT 9
 
 #define TAPPING_TERM 200
 #define QUICK_TAP_TERM 0
