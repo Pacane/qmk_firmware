@@ -1,8 +1,10 @@
 MOUSEKEY_ENABLE = yes     # Mouse keys
 RGBLIGHT_ENABLE = no
 RGB_MATRIX_ENABLE = yes    # Enable WS2812 RGB underlight.
-VIA_ENABLE      = yes    # Enable VIA
+VIA_ENABLE      = no    # Enable VIA
 OLED_ENABLE     = yes
 LTO_ENABLE      = yes
-WPM_ENABLE = yes
+WPM_ENABLE = no
 AUTO_SHIFT_ENABLE = yes
+COMBO_ENABLE = yes
+INTROSPECTION_KEYMAP_C = introspection.c

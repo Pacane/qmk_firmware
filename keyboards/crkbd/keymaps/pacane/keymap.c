@@ -20,8 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 enum layer_names {
   _CLMK,
-  _CLMK2,
-  /* _QWERTY,	 */
+  _QWERTY,
   _LOW,
   _UP,
   _ADJ,
@@ -43,7 +42,7 @@ enum layer_names {
 #define HOME_SCLN RCTL_T(KC_SCLN)
 
 #define HOME_A LCTL_T(KC_A)
-#define HOME_R LALT_T(KC_R)
+#define HOME_R RALT_T(KC_R)
 #define HOME_S LGUI_T(KC_S)
 #define HOME_T LSFT_T(KC_T)
 #define HOME_G LT(_FR, KC_G)
@@ -54,17 +53,17 @@ enum layer_names {
 #define HOME_I LALT_T(KC_I)
 #define HOME_O RCTL_T(KC_O)
 
-/* #define HOMEQ_A LCTL_T(KC_A) */
-/* #define HOMEQ_S LALT_T(KC_S) */
-/* #define HOMEQ_D LGUI_T(KC_D) */
-/* #define HOMEQ_F LSFT_T(KC_F) */
-/* #define HOMEQ_G LT(_FR, KC_G) */
+#define HOMEQ_A LCTL_T(KC_A)
+#define HOMEQ_S LALT_T(KC_S)
+#define HOMEQ_D LGUI_T(KC_D)
+#define HOMEQ_F LSFT_T(KC_F)
+#define HOMEQ_G LT(_FR, KC_G)
 
-/* #define HOMEQ_H LT(_FR, KC_H) */
-/* #define HOMEQ_J LSFT_T(KC_J) */
-/* #define HOMEQ_K LGUI_T(KC_K) */
-/* #define HOMEQ_L LALT_T(KC_L) */
-/* #define HOMEQ_SCLN LCTL_T(KC_SCLN) */
+#define HOMEQ_H LT(_FR, KC_H)
+#define HOMEQ_J LSFT_T(KC_J)
+#define HOMEQ_K LGUI_T(KC_K)
+#define HOMEQ_L LALT_T(KC_L)
+#define HOMEQ_SCLN LCTL_T(KC_SCLN)
 
 #define MEH_ESC MEH_T(KC_ESC)
 #define LCTL_TAB LCTL_T(KC_TAB)
@@ -130,9 +129,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       MEH_ESC,  KC_Q,   KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,     KC_Y,   KC_SCLN, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,  HOME_A, HOME_R,  HOME_S,  HOME_T,  HOME_G,                       HOME_M,  HOME_N,  HOME_E,   HOME_I, HOME_O,  RSFT_QUOT,
+LSFT_T(KC_QUOT),  HOME_A, HOME_R,  HOME_S,  HOME_T,  HOME_G,                       HOME_M,  HOME_N,  HOME_E,   HOME_I, HOME_O,  RSFT_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      LCTL_TAB, KC_Z,   KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,    KC_COMM,  KC_DOT, KC_SLSH, LALT_T(KC_ESC),
+      LCTL_TAB, KC_Z,   KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,    KC_COMM,  KC_DOT, KC_SLSH, KC_ESC,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          T_FUN,   T_LOW,   KC_SPC,     T_SYM,   T_UP,    RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
@@ -187,7 +186,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      XXXXXXX, S(KC_8), KC_4,    KC_5,    KC_6,    KC_MINS,                      XXXXXXX, KC_LSFT, KC_LGUI,  KC_LALT, KC_LCTL, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, S(KC_5), KC_1,    KC_2,    KC_3,    KC_EQL,                       XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
+     XXXXXXX, S(KC_5), KC_1,    KC_2,    KC_3,    KC_EQL,                       XXXXXXX, XXXXXXX, XXXXXXX,  KC_DOT,  XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          _______,  KC_0,  KC_SPC,     _______,  KC_BSPC,  RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
@@ -196,7 +195,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
     TO(_CLMK), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_F10,   KC_F7,   KC_F8,  KC_F9, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-   TO(_CLMK2), _______, _______, _______, _______, _______,                       KC_F11,   KC_F4,   KC_F5,  KC_F6, XXXXXXX, XXXXXXX,
+  TO(_QWERTY), _______, _______, _______, _______, _______,                       KC_F11,   KC_F4,   KC_F5,  KC_F6, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+-------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_F12,   KC_F1,   KC_F2,  KC_F3, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -214,28 +213,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                           XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
-  [_CLMK2] = LAYOUT_split_3x6_3(
+  [_QWERTY] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      MEH_ESC,  HOME_Q, HOME_W,  HOME_F,  HOME_P,  HOME_B,                       HOME_J,  HOME_L,  HOME_U,   HOME_Y, HOME_SCLN, KC_BSPC,
+      MEH_ESC, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,     KC_O,   KC_P,      KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,  KC_A,   KC_R,    KC_S,    HOME_T,  KC_G,                         KC_M,    HOME_N,  KC_E,     KC_I,   KC_O,      RSFT_QUOT,
+      KC_LSFT, HOMEQ_A,HOMEQ_S, HOMEQ_D, HOMEQ_F, HOMEQ_G,                      HOMEQ_H, HOMEQ_J, HOMEQ_K,  HOMEQ_L,HOMEQ_SCLN,RSFT_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      LCTL_TAB, KC_Z,   KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,    KC_COMM,  KC_DOT, KC_SLSH,   LALT_T(KC_ESC),
+     LCTL_TAB, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M,    KC_COMM,  KC_DOT, KC_SLSH,   LALT_T(KC_ESC),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          T_FUN,   T_LOW,   KC_SPC,     T_SYM,   T_UP,    RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
   ),
-  /* [_QWERTY] = LAYOUT_split_3x6_3( */
-  /* //,-----------------------------------------------------.                    ,-----------------------------------------------------. */
-  /*     MEH_ESC, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,     KC_Y,   KC_O,      KC_P, */
-  /* //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------| */
-  /*     KC_LSFT, HOMEQ_A,HOMEQ_S, HOMEQ_D, HOMEQ_F, HOMEQ_G,                      HOMEQ_H, HOMEQ_J, HOMEQ_K,  HOMEQ_L,HOME_SCLN, RSFT_QUOT, */
-  /* //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------| */
-  /*    LCTL_TAB, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M,    KC_COMM,  KC_DOT, KC_SLSH,   LALT_T(KC_ESC), */
-  /* //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------| */
-  /*                                        T_FUN,   T_LOW,   KC_SPC,     T_SYM,   T_UP,    RALT_T(KC_DEL) */
-  /*                                     //`--------------------------'  `--------------------------' */
-  /* ), */
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
