@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
+#include <stdio.h>
 
 enum layer_names {
   _CLMK,
@@ -28,6 +29,7 @@ enum layer_names {
   _SYM,
   _FUN,
   _FR,
+  _BRKT,
 };
 #define HOME_Q LCTL_T(KC_Q)
 #define HOME_W LALT_T(KC_W)
@@ -80,6 +82,7 @@ enum layer_names {
 #define T_UP LT(_UP, KC_BSPC)
 #define T_LOW LT(_LOW, KC_ESC)
 #define T_SYM LT(_SYM, KC_ENT)
+#define T_BRKT LT(_BRKT, KC_COMM)
 
 #define WS1 LSA(KC_1)
 #define WS2 LSA(KC_2)
@@ -129,9 +132,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       MEH_ESC,  KC_Q,   KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,     KC_Y,   KC_SCLN, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-LSFT_T(KC_QUOT),  HOME_A, HOME_R,  HOME_S,  HOME_T,  HOME_G,                       HOME_M,  HOME_N,  HOME_E,   HOME_I, HOME_O,  RSFT_QUOT,
+      KC_LSFT,  HOME_A, HOME_R,  HOME_S,  HOME_T,  HOME_G,                       HOME_M,  HOME_N,  HOME_E,   HOME_I, HOME_O,  RSFT_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      LCTL_TAB, KC_Z,   KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,    KC_COMM,  KC_DOT, KC_SLSH, KC_ESC,
+      LCTL_TAB, KC_Z,   KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,    T_BRKT,   KC_DOT, KC_SLSH, KC_ESC,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          T_FUN,   T_LOW,   KC_SPC,     T_SYM,   T_UP,    RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
@@ -224,6 +227,18 @@ LSFT_T(KC_QUOT),  HOME_A, HOME_R,  HOME_S,  HOME_T,  HOME_G,                    
                                          T_FUN,   T_LOW,   KC_SPC,     T_SYM,   T_UP,    RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
   ),
+   [_BRKT] = LAYOUT_split_3x6_3(
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+     XXXXXXX, XXXXXXX, XXXXXXX, KC_LPRN, KC_RPRN,  XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+     XXXXXXX, L_CHEV,  R_CHEV,  L_CL_BKT,R_CL_BKT, XXXXXXX,                     HOMEQ_H, HOMEQ_J, HOMEQ_K, HOMEQ_L, HOMEQ_SCLN,RSFT_QUOT,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+     XXXXXXX, XXXXXXX, XXXXXXX, L_SQ_BKT,R_SQ_BKT, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                         T_FUN,   T_LOW,   KC_SPC,     T_SYM,   T_UP,    RALT_T(KC_DEL)
+                                      //`--------------------------'  `--------------------------'
+      // L_CHEV, L_SQ_BKT,L_CL_BKT,KC_LPRN,                      KC_RPRN, R_CL_BKT,R_SQ_BKT,R_CHEV,
+  ),
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -245,4 +260,72 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 };
 
 void keyboard_post_init_user(void) {
+    rgb_matrix_mode(RGB_MATRIX_ALPHAS_MODS);
+    rgb_matrix_sethsv(HSV_PURPLE);
 }
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+    case _LOW:
+        rgb_matrix_sethsv(HSV_BLUE);
+        break;
+    case _UP:
+        rgb_matrix_sethsv(HSV_CYAN);
+        break;
+    case _ADJ:
+        rgb_matrix_sethsv(HSV_YELLOW);
+        break;
+    case _SYM:
+        rgb_matrix_sethsv(HSV_RED);
+        break;
+    case _FUN:
+        rgb_matrix_sethsv(HSV_ORANGE);
+        break;
+    case _WIN:
+        rgb_matrix_sethsv(HSV_TEAL);
+        break;
+    case _QWERTY:
+        rgb_matrix_sethsv(HSV_PINK);
+        break;
+    default: //  for any other layers, or the default layer
+        rgb_matrix_sethsv(HSV_PURPLE);
+        break;
+    }
+    return state;
+}
+
+
+#ifdef OLED_ENABLE
+bool oled_task_user(void) {
+    oled_write_P(PSTR("Layer: "), false);
+
+    switch (get_highest_layer(layer_state)) {
+    case _LOW:
+            oled_write_P(PSTR("Lower\n"), false);
+        break;
+    case _UP:
+            oled_write_P(PSTR("Raise\n"), false);
+        break;
+    case _ADJ:
+            oled_write_P(PSTR("Adjust\n"), false);
+        break;
+    case _SYM:
+            oled_write_P(PSTR("Symbols\n"), false);
+        break;
+    case _FUN:
+            oled_write_P(PSTR("Functions\n"), false);
+        break;
+    case _WIN:
+            oled_write_P(PSTR("Windows\n"), false);
+        break;
+    case _QWERTY:
+            oled_write_P(PSTR("Qwerty\n"), false);
+        break;
+    default: //  for any other layers, or the default layer
+            oled_write_P(PSTR("Colemak\n"), false);
+        break;
+    }
+
+    return false;
+}
+#endif
