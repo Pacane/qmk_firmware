@@ -26,11 +26,15 @@ enum layer_names {
   _UP,
   _ADJ,
   _WIN,
-  _SYM,
+  _NUM,
   _FUN,
   _FR,
   _BRKT,
 };
+
+//#define HOMEROW_TOP
+
+#ifdef HOMEROW_TOP
 #define HOME_Q LCTL_T(KC_Q)
 #define HOME_W LALT_T(KC_W)
 #define HOME_F LGUI_T(KC_F)
@@ -43,6 +47,30 @@ enum layer_names {
 #define HOME_Y LALT_T(KC_Y)
 #define HOME_SCLN RCTL_T(KC_SCLN)
 
+#define HOME_A KC_A
+#define HOME_R KC_R
+#define HOME_S KC_S
+#define HOME_T KC_T
+#define HOME_G LT(_FR, KC_G)
+
+#define HOME_M LT(_FR, KC_M)
+#define HOME_N KC_N
+#define HOME_E KC_E
+#define HOME_I KC_I
+#define HOME_O KC_O
+#else
+#define HOME_Q KC_Q
+#define HOME_W KC_W
+#define HOME_F KC_F
+#define HOME_P KC_P
+#define HOME_B KC_B
+
+#define HOME_J KC_J
+#define HOME_L KC_L
+#define HOME_U KC_U
+#define HOME_Y KC_Y
+#define HOME_SCLN KC_SCLN
+
 #define HOME_A LCTL_T(KC_A)
 #define HOME_R RALT_T(KC_R)
 #define HOME_S LGUI_T(KC_S)
@@ -54,6 +82,7 @@ enum layer_names {
 #define HOME_E RGUI_T(KC_E)
 #define HOME_I LALT_T(KC_I)
 #define HOME_O RCTL_T(KC_O)
+#endif
 
 #define HOMEQ_A LCTL_T(KC_A)
 #define HOMEQ_S LALT_T(KC_S)
@@ -81,7 +110,7 @@ enum layer_names {
 #define T_FUN LT(_FUN, KC_LGUI)
 #define T_UP LT(_UP, KC_BSPC)
 #define T_LOW LT(_LOW, KC_ESC)
-#define T_SYM LT(_SYM, KC_ENT)
+#define T_NUM LT(_NUM, KC_ENT)
 #define T_BRKT LT(_BRKT, KC_COMM)
 
 #define WS1 LSA(KC_1)
@@ -130,13 +159,13 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_CLMK] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      MEH_ESC,  KC_Q,   KC_W,    KC_F,    KC_P,    KC_B,                         KC_J,    KC_L,    KC_U,     KC_Y,   KC_SCLN, KC_BSPC,
+      MEH_ESC,  HOME_Q, HOME_W,  HOME_F,  HOME_P,  HOME_B,                       HOME_J,  HOME_L,  HOME_U,   HOME_Y, HOME_SCLN, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,  HOME_A, HOME_R,  HOME_S,  HOME_T,  HOME_G,                       HOME_M,  HOME_N,  HOME_E,   HOME_I, HOME_O,  RSFT_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       LCTL_TAB, KC_Z,   KC_X,    KC_C,    KC_D,    KC_V,                         KC_K,    KC_H,    T_BRKT,   KC_DOT, KC_SLSH, KC_ESC,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         T_FUN,   T_LOW,   KC_SPC,     T_SYM,   T_UP,    RALT_T(KC_DEL)
+                                         T_FUN,   T_LOW,   KC_SPC,     T_NUM,   T_UP,    RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
   ),
   [_LOW] = LAYOUT_split_3x6_3(
@@ -183,7 +212,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                          KC_LGUI, _______, L_CYCLE,    W_SWAP, _______, _______
                                       //`--------------------------'  `--------------------------'
   ),
-  [_SYM] = LAYOUT_split_3x6_3(
+  [_NUM] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
      XXXXXXX, S(KC_3), KC_7,    KC_8,    KC_9,    PLUS,                         XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -224,18 +253,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      LCTL_TAB, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M,    KC_COMM,  KC_DOT, KC_SLSH,   LALT_T(KC_ESC),
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         T_FUN,   T_LOW,   KC_SPC,     T_SYM,   T_UP,    RALT_T(KC_DEL)
+                                         T_FUN,   T_LOW,   KC_SPC,     T_NUM,   T_UP,    RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
   ),
    [_BRKT] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-     XXXXXXX, XXXXXXX, XXXXXXX, KC_LPRN, KC_RPRN,  XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+     XXXXXXX, XXXXXXX, XXXXXXX, KC_LPRN, KC_RPRN,  S(KC_1),                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, L_CHEV,  R_CHEV,  L_CL_BKT,R_CL_BKT, XXXXXXX,                     HOMEQ_H, HOMEQ_J, HOMEQ_K, HOMEQ_L, HOMEQ_SCLN,RSFT_QUOT,
+     XXXXXXX, L_CHEV,  R_CHEV,  L_CL_BKT,R_CL_BKT,  KC_EQL,                     HOMEQ_H, HOMEQ_J, HOMEQ_K, HOMEQ_L, HOMEQ_SCLN,RSFT_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, XXXXXXX, XXXXXXX, L_SQ_BKT,R_SQ_BKT, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+     XXXXXXX, S(KC_SCLN), KC_SCLN, L_SQ_BKT,R_SQ_BKT,    PIPE,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                         T_FUN,   T_LOW,   KC_SPC,     T_SYM,   T_UP,    RALT_T(KC_DEL)
+                                         T_FUN,   T_LOW,   KC_SPC,     T_NUM,   T_UP,    RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
       // L_CHEV, L_SQ_BKT,L_CL_BKT,KC_LPRN,                      KC_RPRN, R_CL_BKT,R_SQ_BKT,R_CHEV,
   ),
@@ -275,7 +304,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     case _ADJ:
         rgb_matrix_sethsv(HSV_YELLOW);
         break;
-    case _SYM:
+    case _NUM:
         rgb_matrix_sethsv(HSV_RED);
         break;
     case _FUN:
@@ -287,8 +316,12 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     case _QWERTY:
         rgb_matrix_sethsv(HSV_PINK);
         break;
+    case _BRKT:
+        rgb_matrix_sethsv(HSV_GOLD);
+        break;
     default: //  for any other layers, or the default layer
         rgb_matrix_sethsv(HSV_PURPLE);
+        /* rgb_matrix_set_speed(200); */
         break;
     }
     return state;
@@ -297,20 +330,18 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 #ifdef OLED_ENABLE
 bool oled_task_user(void) {
-    oled_write_P(PSTR("Layer: "), false);
-
     switch (get_highest_layer(layer_state)) {
     case _LOW:
-            oled_write_P(PSTR("Lower\n"), false);
+            oled_write_P(PSTR("Low\n"), false);
         break;
     case _UP:
-            oled_write_P(PSTR("Raise\n"), false);
+            oled_write_P(PSTR("Up\n"), false);
         break;
     case _ADJ:
             oled_write_P(PSTR("Adjust\n"), false);
         break;
-    case _SYM:
-            oled_write_P(PSTR("Symbols\n"), false);
+    case _NUM:
+            oled_write_P(PSTR("Numbers\n"), false);
         break;
     case _FUN:
             oled_write_P(PSTR("Functions\n"), false);
@@ -321,8 +352,14 @@ bool oled_task_user(void) {
     case _QWERTY:
             oled_write_P(PSTR("Qwerty\n"), false);
         break;
+    case _BRKT:
+            oled_write_P(PSTR("Brackets\n"), false);
+        break;
+    case _CLMK:
+            oled_write_P(PSTR("Colemak-DHM\n"), false);
+        break;
     default: //  for any other layers, or the default layer
-            oled_write_P(PSTR("Colemak\n"), false);
+            oled_write_P(PSTR("Undefined\n"), false);
         break;
     }
 
