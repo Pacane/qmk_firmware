@@ -159,7 +159,7 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_CLMK] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      MEH_ESC,  HOME_Q, HOME_W,  HOME_F,  HOME_P,  HOME_B,                       HOME_J,  HOME_L,  HOME_U,   HOME_Y, HOME_SCLN, KC_BSPC,
+      MEH_ESC,  HOME_Q, HOME_W,  HOME_F,  HOME_P,  HOME_B,                       HOME_J,  HOME_L,  HOME_U,   HOME_Y, HOME_SCLN, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,  HOME_A, HOME_R,  HOME_S,  HOME_T,  HOME_G,                       HOME_M,  HOME_N,  HOME_E,   HOME_I, HOME_O,  RSFT_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -231,7 +231,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+-------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_F12,   KC_F1,   KC_F2,  KC_F3, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          _______, _______, _______,    _______, _______, _______
+                                          _______, _______, _______,    _______, KC_BSPC, _______
                                       //`--------------------------'  `--------------------------'
   ),
   [_FR] = LAYOUT_split_3x6_3(
@@ -260,13 +260,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
      XXXXXXX, XXXXXXX, XXXXXXX, KC_LPRN, KC_RPRN,  S(KC_1),                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, L_CHEV,  R_CHEV,  L_CL_BKT,R_CL_BKT,  KC_EQL,                     HOMEQ_H, HOMEQ_J, HOMEQ_K, HOMEQ_L, HOMEQ_SCLN,RSFT_QUOT,
+     XXXXXXX,  L_CHEV,  R_CHEV,L_CL_BKT,R_CL_BKT,   KC_EQL,                     HOMEQ_H, HOMEQ_J, HOMEQ_K, HOMEQ_L, HOMEQ_SCLN,RSFT_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      XXXXXXX, S(KC_SCLN), KC_SCLN, L_SQ_BKT,R_SQ_BKT,    PIPE,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          T_FUN,   T_LOW,   KC_SPC,     T_NUM,   T_UP,    RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
-      // L_CHEV, L_SQ_BKT,L_CL_BKT,KC_LPRN,                      KC_RPRN, R_CL_BKT,R_SQ_BKT,R_CHEV,
   ),
 };
 
@@ -354,6 +353,9 @@ bool oled_task_user(void) {
         break;
     case _BRKT:
             oled_write_P(PSTR("Brackets\n"), false);
+        break;
+    case _FR:
+            oled_write_P(PSTR("French accents\n"), false);
         break;
     case _CLMK:
             oled_write_P(PSTR("Colemak-DHM\n"), false);
