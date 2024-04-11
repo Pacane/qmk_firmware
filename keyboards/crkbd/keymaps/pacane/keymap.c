@@ -149,6 +149,7 @@ enum layer_names {
 #define UNDSCR S(KC_MINS)
 #define MULTPL S(KC_8)
 #define AT RALT(KC_2)
+#define AMPRS S(KC_7)
 
 enum custom_keycodes {
     PASSWD = SAFE_RANGE,
@@ -262,7 +263,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      XXXXXXX,  L_CHEV,  R_CHEV,L_CL_BKT,R_CL_BKT,   KC_EQL,                     HOMEQ_H, HOMEQ_J, HOMEQ_K, HOMEQ_L, HOMEQ_SCLN,RSFT_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, S(KC_SCLN), KC_SCLN, L_SQ_BKT,R_SQ_BKT,    PIPE,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+     AMPRS, S(KC_SCLN), KC_SCLN, L_SQ_BKT,R_SQ_BKT,   PIPE,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          T_FUN,   T_LOW,   KC_SPC,     T_NUM,   T_UP,    RALT_T(KC_DEL)
                                       //`--------------------------'  `--------------------------'
