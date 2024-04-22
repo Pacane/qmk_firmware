@@ -155,6 +155,8 @@ enum custom_keycodes {
     PASSWD = SAFE_RANGE,
     CCED,
     EGRAV,
+    ACIRC,
+    ECIRC,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -239,7 +241,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_LBRC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, EGRAV,   TREMA,   KC_LBRC, KC_QUOT,
+      XXXXXXX, KC_LBRC, XXXXXXX, XXXXXXX, XXXXXXX, ACIRC,                        ECIRC,   XXXXXXX, EGRAV,   TREMA,   KC_LBRC, KC_QUOT,
   //|--------+--------+--------+--------+-------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, CCED,    XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -275,15 +277,28 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case PASSWD:
         if (record->event.pressed) {
             SEND_STRING("motdepasse1234");
-        }         break;
+        }
+        break;
     case CCED:
         if (record->event.pressed) {
             SEND_STRING(SS_TAP(X_RBRC)"c");
-        }         break;
+        }
+        break;
     case EGRAV:
         if (record->event.pressed) {
             SEND_STRING(SS_TAP(X_QUOT)"e");
-        }         break;
+        }
+        break;
+    case ACIRC:
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_LBRC)"a");
+        }
+        break;
+    case ECIRC:
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_LBRC)"e");
+        }
+        break;
     }
     return true;
 };
